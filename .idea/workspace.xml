@@ -3,27 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="65e3ec01-a11c-47cc-a4c1-a1c7209c4f00" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/OntoQSAR2_v1_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/avalia_conceitos.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_MayoSRS_human_judments" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_MiniMayoSRS_SNOMED_CT_coder_judgments" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_MiniMayoSRS_SNOMED_CT_physician_judgments" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNSRS_Similarity_human_judgments" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/pizza_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/snomed-class-hierarchy_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/OntoQSAR2_v1_adj.csv_lista_sim_lch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/OntoQSAR2_v1_adj.csv_lista_sim_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/OntoQSAR2_v1_adj.csv_out_plot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/OntoQSAR2_v1_adj.csv_out_plot.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_IC_jcn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_IC_lin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_IC_resnik" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_lch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_lista_sim_wup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_out_plot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/pizza_adj.csv_out_plot.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/snomed-class-hierarchy_adj.csv_lista_sim_path" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/.~lock.avalia_conceitos_MayoSRS_snomed_ct.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/O01_pizza_adj.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/O02_snomed-class-hierarchy_adj.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/O03_OntoQSAR2_v1_adj.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_MayoSRS_snomed_ct.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/avalia_conceitos_MayoSRS_snomed_ct.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNSRS_relatedness_snomed_ct.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNSRS_similarity_snomed_ct.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/retirados.ods" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/retirados.ods" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_01_lista_sim_path" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_out_plot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_out_plot.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/s00_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/s00_setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s01_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/s01_load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/s04_mesures.py" beforeDir="false" afterPath="$PROJECT_DIR$/s04_mesures.py" afterDir="false" />
@@ -52,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../similaridades_v5_adj" />
   </component>
   <component name="RunManager" selected="Python.s00_setup">
     <configuration name="Authenticate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">

@@ -65,6 +65,7 @@ def matriz_sim_path(H,nos,base,avaliacao,df_avaliacao):
 # Medida de similaridade Sim_wup
 
 def sim_wup(G, i, j):
+
     # definindo o no raiz da arvore
     root = "owl.Thing"
 
@@ -297,7 +298,7 @@ def matriz_sim_lin(G, nos, base, avaliacao, df_avaliacao):
     if avaliacao == '1':
 
         #print(df_avaliacao[['c1','c2']])
-
+        u=0
         for index, row in df_avaliacao.iterrows():
             lcs = nx.lowest_common_ancestor(G, row['c1'], row['c2'])
 
@@ -313,9 +314,9 @@ def matriz_sim_lin(G, nos, base, avaliacao, df_avaliacao):
 
             m.append([row['c1'], row['c2'], round(res, 4)])
 
-            #u = u + 1
+            u = u + 1
             # print('#:' + str(w) + str('|') + '#:' + str(u))
-            # print('')
+            print(u)
         #w = w + 1
 
         #m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
@@ -389,12 +390,14 @@ def matriz_sim_resnik(G, nos, base,avaliacao,df_avaliacao):
     if avaliacao == '1':
 
         #print(df_avaliacao[['c1','c2']])
+        u=0
         for index, row in df_avaliacao.iterrows():
             #print(row)
             res = sim_resnik(G, row['c1'], row['c2'])
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
             #print(row['c1'], row['c2'],row['res_in'],res)
-
+            u=u+1
+            print(u)
 
     else:
         for i in nos:
@@ -462,11 +465,15 @@ def matriz_sim_jcn(G, nos, base, avaliacao, df_avaliacao):
 
     if avaliacao == '1':
 
-        print(df_avaliacao[['c1','c2']])
+        #print(df_avaliacao[['c1','c2']])
+        u=0
         for index, row in df_avaliacao.iterrows():
             res = sim_jcn(G, row['c1'], row['c2'])
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
             #print(row['c1'], row['c2'],row['res_in'],res)
+            u=u+1
+            print(u)
+
 
     else:
         for i in nos:

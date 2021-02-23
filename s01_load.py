@@ -1,5 +1,6 @@
 from owlready2 import *
 import pandas as pd
+import pickle
 import os
 from os import walk
 import shutil
@@ -96,6 +97,7 @@ def criar_menu_arq():
         n = n + 1
 
     dic=dict(menu_list)
+    dic = sorted(dic.values())
     #print(dict(menu_list))
     return dic
 

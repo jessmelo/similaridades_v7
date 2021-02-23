@@ -5,6 +5,7 @@ import seaborn as sns
 import matplotlib as plt
 import os
 import time
+#import pickle
 from s01_load import *
 from s02_plot import *
 from s03_functions import *
@@ -14,7 +15,7 @@ print('')
 print('#####################################################################')
 print('## PPGSI - EACH/USP 2020 ############################################')
 print('## LCDS  - 5965830       ############################################')
-print('## Similaridades v6      ############################################')
+print('## Similaridades v7      ############################################')
 print('#####################################################################')
 
 '****************************************************************************'
@@ -126,7 +127,8 @@ print('## Plot                  ############################################')
 print('#####################################################################')
 print('')
 
-grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não')
+#grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não')
+grafo_imagem = '2'
 print('* Escolha: '+str(grafo_imagem))
 if grafo_imagem == '1':
     draw_grafo=draw_Digraph(nos,arestas,base)
