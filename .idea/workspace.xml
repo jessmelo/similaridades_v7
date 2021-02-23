@@ -3,20 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="65e3ec01-a11c-47cc-a4c1-a1c7209c4f00" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/.~lock.avalia_conceitos_MayoSRS_snomed_ct.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/O01_pizza_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/O02_snomed-class-hierarchy_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/O03_OntoQSAR2_v1_adj.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_MayoSRS_snomed_ct.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/avalia_conceitos_MayoSRS_snomed_ct.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNSRS_relatedness_snomed_ct.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNSRS_similarity_snomed_ct.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/.~lock.avalia_conceitos_UMNRS_relatedness_430.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/.~lock.retirados.ods#" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/.~lock.retirados.ods#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNRS_relatedness_430.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNRS_relatedness_430.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_in/retirados.ods" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/retirados.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_01_lista_sim_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_out_plot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_out/O01_pizza_adj.csv_out_plot.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/s00_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/s00_setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s01_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/s01_load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/s04_mesures.py" beforeDir="false" afterPath="$PROJECT_DIR$/s04_mesures.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
