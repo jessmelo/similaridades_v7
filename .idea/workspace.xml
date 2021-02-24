@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65e3ec01-a11c-47cc-a4c1-a1c7209c4f00" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/.~lock.avalia_conceitos_UMNRS_relatedness_430.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/.~lock.retirados.ods#" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/.~lock.retirados.ods#" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNRS_relatedness_430.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/avalia_conceitos_UMNRS_relatedness_430.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_in/retirados.ods" beforeDir="false" afterPath="$PROJECT_DIR$/data_in/retirados.ods" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
