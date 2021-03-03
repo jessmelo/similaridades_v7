@@ -4,6 +4,8 @@ import pickle
 import os
 from os import walk
 import shutil
+from s02_plot import *
+from s03_functions import *
 ###################################################################
 # Encontrar arquivos no diretório de dados
 
@@ -13,7 +15,7 @@ def encontrar_arq():
     for path, diretorios, arquivos in walk(path) :
         for arq in arquivos:
             nome_arq=os.path.splitext(arq)[0]
-            #print(nome_arq)
+            print(nome_arq)
 
             if arq.endswith(".owl") or arq.endswith(".rdf"):
                 onto = get_ontology(path+str(arq)).load()
@@ -23,45 +25,45 @@ def encontrar_arq():
 
                 #Apresentação das classes
                 classes=list(onto.classes())
-                #print(classes)
-
-                #print(nome_arq)
-                #print('Quantidade de conceitos: '+str(len(classes)))
-                #print('')
 
                 x=[]
                 s = 0
                 for i in classes:
                     for l in range(len(onto.get_children_of(i))):
-                        #print(i,i.is_a[0])
                         b = (i.is_a[0],i)
                         x.append(b)
                         s = s + 1
-                        #print(s)
 
                 s = 0
                 for i in classes:
                     for l in range(len(onto.get_children_of(i))):
-                        # print(i,'|',onto.get_children_of(i)[l])
                         b = (i, onto.get_children_of(i)[l])
                         x.append(b)
                         s = s + 1
-                        #print(s)
 
                 df = pd.DataFrame(x)
                 df.columns = ['n1', 'n2']
-                #print(df)
                 df['prop'] = 'is-a'
                 df = df.drop_duplicates()
-                #print(df)
 
                 df.to_csv('./data_in/'+nome_arq+'_adj.csv', index = False, sep='|')
-                #print(df.head(3))
 
-    #print('')
-    #print('Import ok!')
-    #print('************************************************')
-    #print('')
+                # ontologia
+                df=carga_de_ontologia(nome_arq+"_adj.csv")
+
+                # criando grafos da ontologia (direcionado e nao direcionado)
+                nodes=nos(df)
+                edges=arestas(df)
+
+                qtd_nos(df)
+                qtd_arestas(df)
+
+                H=build_graph_nx(nodes,edges)
+                G=build_Digraph_nx(nodes,edges)
+
+                data = [H, G]
+                graph_file = "./data_in/"+ nome_arq + "_ontology.graph"
+                pickle.dump(data, open(graph_file, "wb"))
 
     return()
 
@@ -75,7 +77,6 @@ def encontrar_arq_avaliacao():
         for arq in arquivos:
             if arq.startswith("avalia_conceitos"):
                 base_avaliacao = os.path.splitext(arq)[0]
-                #print(base_avaliacao)
     return()
 
 ###################################################################
@@ -87,7 +88,7 @@ def criar_menu_arq():
     arr = os.listdir(path)
 
     lista = [arq for arq in arr if
-             (arq.endswith("_adj.csv"))]
+             (arq.endswith("_adj.csv")) or (arq.endswith(".graph"))]
 
     menu_list = []
     n = 0
@@ -97,8 +98,6 @@ def criar_menu_arq():
         n = n + 1
 
     dic=dict(menu_list)
-    dic = sorted(dic.values())
-    #print(dict(menu_list))
     return dic
 
 ###################################################################
@@ -120,7 +119,6 @@ def criar_menu_arq_avaliacao():
         n = n + 1
 
     dic_avalia=dict(menu_avalia_list)
-    #print(dict(menu_avalia_list))
     return dic_avalia
 
 ###################################################################
@@ -133,10 +131,8 @@ def carga_de_ontologia(base):
     print(df.head(3))
     return df
 
-
 def carga_de_avaliacao(avaliacao):
     print('')
-    #print('./data_in/'+str(base))
     print('Layout do arquivo de avaliação')
     df_avaliacao=pd.read_csv('./data_in/'+str(avaliacao),decimal=".",delimiter=',')
     print(df_avaliacao.head(3))

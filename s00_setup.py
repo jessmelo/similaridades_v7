@@ -1,21 +1,18 @@
 #!/usr/bin/env python
 import networkx as nx
-import numpy as np
-import seaborn as sns
-import matplotlib as plt
 import os
 import time
-#import pickle
+import pickle
 from s01_load import *
 from s02_plot import *
 from s03_functions import *
-from s04_mesures import *
+from s04_measures import *
 
 print('')
 print('#####################################################################')
 print('## PPGSI - EACH/USP 2020 ############################################')
 print('## LCDS  - 5965830       ############################################')
-print('## Similaridades v7      ############################################')
+print('## Similaridades v8      ############################################')
 print('#####################################################################')
 
 '****************************************************************************'
@@ -69,8 +66,8 @@ medida_dic={
     '7':'Sim_ilin',
     '8':'Sim_ires',
     '9':'Sim_ijcn',
-    '10':'lesk',
-    '11':'vector'
+    '10':'Rel_lesk',
+    '11':'Rel_vector'
 }
 print(medida_dic[medida])
 print('')
@@ -82,7 +79,6 @@ print('#####################################################################')
 print('')
 
 avaliacao=input('Deseja utilizar uma base de avaliação? 1-Sim/2-Não')
-#print(avaliacao)
 print('')
 
 if avaliacao == '1':
@@ -110,15 +106,27 @@ else:
     df_avaliacao = ''
 print('---------------------------------------------------------------------')
 
-#ontologia
-df=carga_de_ontologia(base)
+ontologia, extensao  = base.split(".")
 
-nos=nos(df)
-#print(nos)
-arestas=arestas(df)
+if(extensao=="csv"):
+    # converte csv para grafo
+    ontologia
+    df=carga_de_ontologia(base)
 
-qtd_nos(df)
-qtd_arestas(df)
+    nos=nos(df)
+    arestas=arestas(df)
+    qtd_nos(df)
+    qtd_arestas(df)
+
+    H=build_graph_nx(nos,arestas)
+    G=build_Digraph_nx(nos,arestas)
+
+elif(extensao=="graph"):
+    # carrega ontologia já armazenada em disco
+    path = './data_in/' + base
+    data = pickle.load(open(path, "rb"))
+    H = data[0]
+    G = data[1]
 
 '****************************************************************************'
 print('')
@@ -127,8 +135,8 @@ print('## Plot                  ############################################')
 print('#####################################################################')
 print('')
 
-#grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não')
-grafo_imagem = '2'
+grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não')
+
 print('* Escolha: '+str(grafo_imagem))
 if grafo_imagem == '1':
     draw_grafo=draw_Digraph(nos,arestas,base)
@@ -141,6 +149,7 @@ lista = [arq for arq in arr if
 #print(lista)
 for i in lista:
     shutil.move(path+str(i), './owl_rdf/')
+
 '****************************************************************************'
 print('')
 print('#####################################################################')
@@ -148,45 +157,41 @@ print('## Resultados            ############################################')
 print('#####################################################################')
 print('')
 
-
-H=build_graph_nx(nos,arestas)
-G=build_Digraph_nx(nos,arestas)
-
 print("Medida selecionada: "+ str(medida_dic[medida]))
 
 if medida_dic[medida] == 'Sim_path':
     ini = time.time()
-    m=matriz_sim_path(H,nos,base,avaliacao,df_avaliacao)
+    m=matriz_sim_path(H,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
 elif medida_dic[medida] == 'Sim_wup':
     ini = time.time()
-    m=matriz_sim_wup(G, nos, base,avaliacao,df_avaliacao)
+    m=matriz_sim_wup(G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
 elif medida_dic[medida] == 'Sim_lch':
     ini = time.time()
-    m=matriz_sim_lch(G, nos, base,avaliacao,df_avaliacao)
+    m=matriz_sim_lch(G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
 elif medida_dic[medida] == 'Sim_lin':
     ini = time.time()
-    m=matriz_sim_lin(G, nos, base,avaliacao,df_avaliacao)
+    m=matriz_sim_lin(G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
 elif medida_dic[medida] == 'Sim_res':
     ini = time.time()
-    m=matriz_sim_resnik(G, nos, base,avaliacao,df_avaliacao)
+    m=matriz_sim_resnik(G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
 elif medida_dic[medida] == 'Sim_jcn':
     ini = time.time()
-    m=matriz_sim_jcn(G, nos, base,avaliacao,df_avaliacao)
+    m=matriz_sim_jcn(G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
