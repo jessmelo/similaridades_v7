@@ -87,8 +87,7 @@ def criar_menu_arq():
 
     arr = os.listdir(path)
 
-    lista = [arq for arq in arr if
-             (arq.endswith("_adj.csv")) or (arq.endswith(".graph"))]
+    lista = [arq for arq in arr if(arq.endswith(".graph"))]
 
     menu_list = []
     n = 0

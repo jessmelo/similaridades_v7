@@ -17,6 +17,7 @@ def shortest_path_length(H,i,j):
 ###################################################################
 # Medida de similaridade Spath
 def sim_spath(H,i,j):
+
     try:
         res=1/shortest_path_length(H,i,j)
     except:
@@ -41,23 +42,31 @@ def matriz_sim_path(H,base,avaliacao,df_avaliacao):
         for i in list(H.nodes):
             for j in list(H.nodes):
                 res = sim_spath(H, i, j)
-                m.append([i, j, round(res, 4)])
+                m.append([i, j, 0, round(res, 4)])
 
         m = pd.DataFrame(m)
-        m.columns = ['c1', 'c2', 'res_calc']
+        m.columns = ['c1', 'c2', 'res_in', 'res_calc']
 
     nome_arq = str(base).replace('.graph', '')
-    nome_arq = str(base).replace('.csv', '')
-    m.to_csv('./data_out/' + nome_arq + '_sim_path.csv', index=False)
-    print('Lista de resultados: ' + './data_out/' + nome_arq + '_sim_path.csv')
+    m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_path.csv', index=False, sep='|')
+    print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_path.csv')
     return(m)
 
 ###################################################################
 # Medida de similaridade Sim_wup
 
-def sim_wup(G, i, j):
+def sim_wup(G, i, j, root):
+    # no raiz da snomed-ct:
+    # root = "id.138875005"
+
+    if i == j:
+        sim_wup = 1.0
+        return sim_wup
+
     # definindo o no raiz da arvore
-    root = "id.138875005"
+    # for i in G.nodes():
+    #     if (G.in_degree(i) == 0):
+    #         root = i
 
     # calculando o Least Common Subsumer (Ancestor)
     LCS = nx.lowest_common_ancestor(G, i, j)
@@ -77,9 +86,16 @@ def sim_wup(G, i, j):
 
 def matriz_sim_wup(G,base,avaliacao,df_avaliacao):
     m = []
+
+    # definindo o no raiz da arvore
+    for i in G.nodes():
+        if (G.in_degree(i) == 0):
+            root = i
+
+    print("raiz do grafo: " + str(root))
     if avaliacao == '1':
         for index, row in df_avaliacao.iterrows():
-            res = sim_wup(G, row['c1'], row['c2'])
+            res = sim_wup(G, row['c1'], row['c2'], root)
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
 
         m = pd.DataFrame(m)
@@ -88,41 +104,42 @@ def matriz_sim_wup(G,base,avaliacao,df_avaliacao):
     else:
         for i in list(G.nodes):
             for j in list(G.nodes):
-                res = sim_wup(G, i, j)
+                res = sim_wup(G, i, j, root)
                 m.append([i, j, round(res, 4)])
 
         m = pd.DataFrame(m)
-        m.columns = ['c1', 'c2', 'res_calc']
+        m.columns = ['c1', 'c2', 'res_in', 'res_calc']
 
     nome_arq = str(base).replace('.graph', '')
-    nome_arq = str(base).replace('.csv', '')
-    m.to_csv('./data_out/' + nome_arq + '_sim_wup.csv', index=False)
-    print('Lista de resultados: ' + './data_out/' + nome_arq + '_sim_wup.csv')
+    m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_wup.csv', index=False, sep='|')
+    print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_wup.csv')
     return(m)
 
 ###################################################################
 # Medida de similaridade Sim_lch
 
-def sim_lch(G, i, j):
+def sim_lch(H, G, i, j):
     # medindo o menor caminho do grafo nao direcionado
-    G_undirected = G.to_undirected()
-    shortest_path = shortest_path_length(G_undirected, i, j)
+    #G_undirected = G.to_undirected()
 
+    #shortest_path = shortest_path_length(G_undirected, i, j)
+    shortest_path=sim_spath(H, i, j)
+    print('shortest_path:'+str(shortest_path))
     #print('*********************************************')
     #print('i'+str(i))
     #print('j'+str(j))
-    #print('shortest_path'+str(shortest_path))
+
     # calcula profundidade do grafo
     Depth_ontology = nx.dag_longest_path_length(G)
-    #print('Depth_ontology'+str(Depth_ontology))
+    print('Depth_ontology: '+str(Depth_ontology))
     # formula:
-    lch = shortest_path / (2 * Depth_ontology)
-    #print('lch'+str(lch))
-    if(lch == 0):
+    Qlch = shortest_path / (2 * Depth_ontology)
+    print('Quociente lch: '+str(Qlch))
+    if(i == j):
         sim_lch = 1.0
     else:
-        sim_lch = -math.log10(lch)
-
+        sim_lch = -math.log10(Qlch)
+    print('lch: '+str(sim_lch))
 
     if i == j:
         sim_lch = 1.0
@@ -131,12 +148,11 @@ def sim_lch(G, i, j):
 
     return(sim_lch)
 
-
-def matriz_sim_lch(G,base,avaliacao,df_avaliacao):
+def matriz_sim_lch(H,G,base,avaliacao,df_avaliacao):
     m = []
     if avaliacao == '1':
         for index, row in df_avaliacao.iterrows():
-            res = sim_lch(G, row['c1'], row['c2'])
+            res = sim_lch(H, G, row['c1'], row['c2'])
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
 
         m = pd.DataFrame(m)
@@ -145,15 +161,15 @@ def matriz_sim_lch(G,base,avaliacao,df_avaliacao):
     else:
         for i in list(G.nodes):
             for j in list(G.nodes):
-                res = sim_lch(G, i, j)
+                res = sim_lch(H, G, i, j)
                 m.append([i, j, round(res, 4)])
 
         m = pd.DataFrame(m)
-        m.columns = ['c1', 'c2', 'res_calc']
+        m.columns = ['c1', 'c2', 'res_in', 'res_calc']
 
     nome_arq = str(base).replace('.graph', '')
-    m.to_csv('./data_out/' + nome_arq + '_sim_lch.csv', index=False)
-    print('Lista de resultados: ' + './data_out/' + nome_arq + '_sim_lch.csv')
+    m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_lch.csv', index=False, sep='|')
+    print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_lch.csv')
     return(m)
 
 ###################################################################
@@ -171,7 +187,7 @@ def information_content(G, node):
             descendants_leaves.append(x)
 
     num_descendants_leaves = len(descendants_leaves)
-    #print('num_descendants_leaves:'+str(num_descendants_leaves))
+    print('num_descendants_leaves:'+str(num_descendants_leaves))
 
     if (G.in_degree(node) == 0 and G.out_degree(node) != 0):
         num_subsumers = 1
@@ -202,7 +218,9 @@ def information_content(G, node):
 # Medida de similaridade de lin
 
 def sim_lin(G, i, j , lcs):
-    lcs = str(lcs)
+    if i == j:
+        sim_lin = 1.0
+        return sim_lin
 
     #print('i:'+str(type(i)))
     #print('j:'+str(type(j)))
@@ -224,9 +242,6 @@ def sim_lin(G, i, j , lcs):
         sim_lin = (2 * ic_lcs) / (ic_i + ic_j)
     except ZeroDivisionError:
         sim_lin = 1
-
-    if i == j:
-        sim_lin = 1.0
 
     return sim_lin
 
@@ -300,7 +315,7 @@ def matriz_sim_lin(G, nos, base, avaliacao, df_avaliacao):
 
     #m = m.pivot_table(2, 0, 1, fill_value=0)
 
-    m.to_csv('./data_out/' + str(base) + '_04_lista_sim_IC_lin', index=False)
+    m.to_csv('./data_out/similaridade_' + str(base) + '_04_lista_sim_IC_lin', index=False, sep='|')
     #m.to_csv('./data_out/'+'matrix_sim_IC_lin_'+str(base), index=True)
 
     print('*****************************************************')
@@ -313,14 +328,15 @@ def matriz_sim_lin(G, nos, base, avaliacao, df_avaliacao):
 # Medida de similaridade de resnik
 
 # Medida de Resnik
-def sim_resnik(G, node1, node2):
-
-    lcs = nx.lowest_common_ancestor(G, node1, node2)
-
-    sim_res = information_content(G, lcs)
-
-    if node1 == node2:
+def sim_resnik(G, i, j):
+    if i == j:
         sim_res = 1.0
+        return sim_res
+
+    lcs = nx.lowest_common_ancestor(G, i, j)
+    print('lcs: '+str(lcs))
+    sim_res = information_content(G, lcs)
+    print('sim_res: '+str(sim_res))
 
     return sim_res
 
@@ -334,12 +350,13 @@ def matriz_sim_resnik(G, nos, base,avaliacao,df_avaliacao):
         #print(df_avaliacao[['c1','c2']])
         u=0
         for index, row in df_avaliacao.iterrows():
-            #print(row)
-            res = sim_resnik(G, row['c1'], row['c2'])
-            m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
-            #print(row['c1'], row['c2'],row['res_in'],res)
-            u=u+1
             print(u)
+            print('Row: '+str(row))
+            res = sim_resnik(G, row['c1'], row['c2'])
+            m.append([row['c1'], row['c2'],row['res_in'], round(res, 8)])
+            print(row['c1'], row['c2'],row['res_in'],res)
+            u=u+1
+            print('***************************************')
 
     else:
         for i in nos:
@@ -353,9 +370,9 @@ def matriz_sim_resnik(G, nos, base,avaliacao,df_avaliacao):
     m = pd.DataFrame(m)
     #m = m.pivot_table(2, 0, 1, fill_value=0)
 
-    m.to_csv('./data_out/' + str(base) + '_05_Lista_sim_IC_resnik', index=False)
+    m.to_csv('./data_out/similaridade_' + str(base) + '_05_Lista_sim_IC_resnik', index=False, sep='|')
     #m.to_csv('./data_out/'+'matrix_sim_IC_resnik_'+str(base), index=True)
-    print('Lista de similaridades: '+'./data_out/' +  str(base) + '_05_Lista_sim_IC_resnik')
+    print('Lista de similaridades: '+'./data_out/similaridade_' +  str(base) + '_05_Lista_sim_IC_resnik')
 
     return(s)
 
@@ -365,6 +382,9 @@ def matriz_sim_resnik(G, nos, base,avaliacao,df_avaliacao):
 
 # Medida de JCN
 def sim_jcn(G, i, j):
+    if i == j:
+        sim_jcn = 1.0
+        return sim_jcn
 
     lcs = nx.lowest_common_ancestor(G, i, j)
 
@@ -394,9 +414,6 @@ def sim_jcn(G, i, j):
     except ZeroDivisionError:
         sim_jcn = 1
 
-    if i == j:
-        sim_jcn = 1.0
-
     return sim_jcn
 
 
@@ -407,14 +424,14 @@ def matriz_sim_jcn(G, nos, base, avaliacao, df_avaliacao):
 
     if avaliacao == '1':
 
-        #print(df_avaliacao[['c1','c2']])
+        print(df_avaliacao[['c1','c2']])
         u=0
         for index, row in df_avaliacao.iterrows():
+            print(u)
             res = sim_jcn(G, row['c1'], row['c2'])
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
-            #print(row['c1'], row['c2'],row['res_in'],res)
+            print(row['c1'], row['c2'],row['res_in'],res)
             u=u+1
-            print(u)
 
 
     else:
@@ -432,8 +449,8 @@ def matriz_sim_jcn(G, nos, base, avaliacao, df_avaliacao):
     m = pd.DataFrame(m)
     #m = m.pivot_table(2, 0, 1, fill_value=0)
 
-    m.to_csv('./data_out/' +  str(base) + '_06_lista_sim_jcn', index=False)
+    m.to_csv('./data_out/similaridade_' +  str(base) + '_06_lista_sim_jcn', index=False, sep='|')
     #m.to_csv('./data_out/'+'matrix_sim_IC_jcn_'+str(base), index=True)
-    print('Lista de similaridades: '+'./data_out/' +  str(base) + '_06_lista_sim_jcn')
+    print('Lista de similaridades: '+'./data_out/similaridade_' +  str(base) + '_06_lista_sim_jcn')
 
     return(s)

@@ -1,12 +1,13 @@
 #!/usr/bin/env python
-import networkx as nx
-import os
-import time
-import pickle
 from s01_load import *
 from s02_plot import *
 from s03_functions import *
 from s04_measures import *
+import networkx as nx
+import os
+import sys
+import time
+import pickle
 
 print('')
 print('#####################################################################')
@@ -15,14 +16,25 @@ print('## LCDS  - 5965830       ############################################')
 print('## Similaridades v8      ############################################')
 print('#####################################################################')
 
+print('---------------------------------------------------------------------')
+menu_selecao = input('Deseja calcular similaridades ou analisar correlação? 1-Similaridade / 2-Correlação ')
+dic={
+    '1':'Similaridade',
+    '2':'Correlação'
+}
+print(dic[(menu_selecao)])
+
+if(menu_selecao=='2'):
+    from s05_report import *
+    avalia_correlacao()
+    os._exit(0)
+
 '****************************************************************************'
 print('')
 print('#####################################################################')
 print('## Menu de ontologias    ############################################')
 print('#####################################################################')
 print('')
-
-encontrar_arq()
 
 print('---------------------------------------------------------------------')
 print('* Ontologias disponíveis:')
@@ -173,7 +185,7 @@ elif medida_dic[medida] == 'Sim_wup':
 
 elif medida_dic[medida] == 'Sim_lch':
     ini = time.time()
-    m=matriz_sim_lch(G,base,avaliacao,df_avaliacao)
+    m=matriz_sim_lch(H,G,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
