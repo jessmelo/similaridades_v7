@@ -133,6 +133,6 @@ def carga_de_ontologia(base):
 def carga_de_avaliacao(avaliacao):
     print('')
     print('Layout do arquivo de avaliação')
-    df_avaliacao=pd.read_csv('./data_in/'+str(avaliacao),decimal=".",delimiter=',')
+    df_avaliacao=pd.read_csv('./data_in/'+str(avaliacao),decimal=".",delimiter='|')
     print(df_avaliacao.head(3))
     return df_avaliacao
