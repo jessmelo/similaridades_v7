@@ -1,0 +1,211 @@
+digraph G {
+	pad=1 rankdir=RL size="18,4"
+	node [fillcolor=lightgray shape=box style="rounded,filled"]
+	"OntoQSAR2_v1.Diagnosis"
+	"OntoQSAR2_v1.bioassay"
+	"OntoQSAR2_v1.hartree-fock_method"
+	"OntoQSAR2_v1.heavy_atom_count"
+	"OntoQSAR2_v1.AlogP_descriptor"
+	"OntoQSAR2_v1.Inhibitor"
+	"OntoQSAR2_v1.bond_count"
+	"OntoQSAR2_v1.Highest_Occupied_Molecular_Orbital_Energy"
+	"OntoQSAR2_v1.atomic_QSAR_descriptor"
+	"OntoQSAR2_v1.polar_surface_area_descriptor"
+	"OntoQSAR2_v1.alcohol"
+	"OntoQSAR2_v1.Abs.máx(eV)"
+	"OntoQSAR2_v1.pIC50"
+	"OntoQSAR2_v1.molar_refractivity"
+	"OntoQSAR2_v1.internal_validation"
+	"OntoQSAR2_v1.Genetic_Algorithm"
+	"OntoQSAR2_v1.Quantum_Chemistry_Computational_Method"
+	"OntoQSAR2_v1.FreeE"
+	"OntoQSAR2_v1.ZeroE"
+	"OntoQSAR2_v1.y_scrambling"
+	"OntoQSAR2_v1.plane_polarized_light_method"
+	"OntoQSAR2_v1.cycle_count"
+	"OntoQSAR2_v1.Functional_Group_Descriptor"
+	"OntoQSAR2_v1.pKi"
+	"OntoQSAR2_v1.non-linear_dimensional_QSAR"
+	"OntoQSAR2_v1.IC50"
+	"OntoQSAR2_v1.partition_coefficient"
+	"OntoQSAR2_v1.Lowest_Unoccupied_Molecular_Orbital_Energy"
+	"OntoQSAR2_v1.Metabolism"
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(polarizability)_descriptors"
+	"OntoQSAR2_v1.carboxylic_acid"
+	"OntoQSAR2_v1.split_validation"
+	"OntoQSAR2_v1.atom_count"
+	"OntoQSAR2_v1.acidic_group_count"
+	"OntoQSAR2_v1.rotatable_bond_count"
+	"OntoQSAR2_v1.Minimum_E-States_for_(strong)_Hydrogen_Bond_donors"
+	"OntoQSAR2_v1.phenols"
+	"OntoQSAR2_v1.Toxicity"
+	"OntoQSAR2_v1.hydrocarbon"
+	"OntoQSAR2_v1.Assay_method"
+	"OntoQSAR2_v1.hydrogen_bond_acceptors_count"
+	"OntoQSAR2_v1.hydrogen_bond_acceptors_count(using_Lipinski’s_definition)"
+	"OntoQSAR2_v1.QSAR_descriptor"
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(mass)_descriptors"
+	"OntoQSAR2_v1.ab_initio_quantum_chemistry_computational_method"
+	"OntoQSAR2_v1.in_vivo"
+	"OntoQSAR2_v1.Trial_and_Error"
+	"OntoQSAR2_v1.Algorithm"
+	"OntoQSAR2_v1.two_dimensional_QSAR"
+	"OntoQSAR2_v1.in_vitro"
+	"OntoQSAR2_v1.zagreb_index"
+	"OntoQSAR2_v1.cross-validation_information"
+	"OntoQSAR2_v1.valence_electron_computational_method"
+	"OntoQSAR2_v1.Osc.Force"
+	"OntoQSAR2_v1.tumor_size"
+	"OntoQSAR2_v1.pi-electron_computational_method"
+	"OntoQSAR2_v1.amide"
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(first_ionization_potential)_descriptors"
+	"OntoQSAR2_v1.drug"
+	"OntoQSAR2_v1.Charges"
+	"OntoQSAR2_v1.Excretion"
+	"OntoQSAR2_v1.ketone"
+	"OntoQSAR2_v1.Dipole"
+	"OntoQSAR2_v1.Transition"
+	"owl.Thing"
+	"OntoQSAR2_v1.Molecular_mass"
+	"OntoQSAR2_v1.Minimum_E-States_for_(strong)_Hydrogen_Bond_acceptors"
+	"OntoQSAR2_v1.cycle_count_containing_heteroatoms"
+	"OntoQSAR2_v1.benzene"
+	"OntoQSAR2_v1.hydrogen_bond_donnors_count(using_Lipinski’s_definition)"
+	"OntoQSAR2_v1.in_silico"
+	"OntoQSAR2_v1.external_validation"
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(NH)"
+	"OntoQSAR2_v1.Finger_Prints"
+	"OntoQSAR2_v1.Abs.máx(nM)"
+	"OntoQSAR2_v1.Absorption"
+	"OntoQSAR2_v1.Biological_Activity"
+	"OntoQSAR2_v1.EC50"
+	"OntoQSAR2_v1.regression_statistics"
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(NH2)"
+	"OntoQSAR2_v1.Supervised_Learning"
+	"OntoQSAR2_v1.linear_QSAR"
+	"OntoQSAR2_v1.ester"
+	"OntoQSAR2_v1.basic_group_count"
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(SH2)"
+	"OntoQSAR2_v1.BBB"
+	"OntoQSAR2_v1.lipinski"
+	"OntoQSAR2_v1.three_dimensional_QSAR"
+	"OntoQSAR2_v1.Atom-type_H_E-State"
+	"OntoQSAR2_v1.aromatic_atom_count"
+	"OntoQSAR2_v1.aldehyde"
+	"OntoQSAR2_v1.Validation"
+	"OntoQSAR2_v1.Contribution"
+	"OntoQSAR2_v1.Pharmacokinetics"
+	"OntoQSAR2_v1.hydrogen_bond_donors_count"
+	"OntoQSAR2_v1.amine"
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(OH)"
+	"OntoQSAR2_v1.Monte_Carlo"
+	"OntoQSAR2_v1.ether"
+	"OntoQSAR2_v1.Chemical_Descriptor"
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(van_der_Waals_volumes)_descriptors"
+	"OntoQSAR2_v1.semi-empirical_quantum_chemistry_method"
+	"OntoQSAR2_v1.Esolv.Water"
+	"OntoQSAR2_v1.Tissue_Distribution"
+	"OntoQSAR2_v1.tumor_size" -> "OntoQSAR2_v1.Diagnosis" [label="is-a"]
+	"OntoQSAR2_v1.drug" -> "OntoQSAR2_v1.Inhibitor" [label="is-a"]
+	"OntoQSAR2_v1.rotatable_bond_count" -> "OntoQSAR2_v1.bond_count" [label="is-a"]
+	"OntoQSAR2_v1.Charges" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Contribution" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Dipole" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Esolv.Water" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.FreeE" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Osc.Force" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Transition" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.ZeroE" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.ab_initio_quantum_chemistry_computational_method" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.hartree-fock_method" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.pi-electron_computational_method" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.semi-empirical_quantum_chemistry_method" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.valence_electron_computational_method" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Abs.máx(eV)" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.Abs.máx(nM)" -> "OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" [label="is-a"]
+	"OntoQSAR2_v1.cycle_count_containing_heteroatoms" -> "OntoQSAR2_v1.cycle_count" [label="is-a"]
+	"OntoQSAR2_v1.alcohol" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.aldehyde" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.amide" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.amine" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.benzene" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.carboxylic_acid" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.ester" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.ether" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.hydrocarbon" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.ketone" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.phenols" -> "OntoQSAR2_v1.Functional_Group_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.in_silico" -> "OntoQSAR2_v1.Assay_method" [label="is-a"]
+	"OntoQSAR2_v1.bioassay" -> "OntoQSAR2_v1.Assay_method" [label="is-a"]
+	"OntoQSAR2_v1.in_vitro" -> "OntoQSAR2_v1.Assay_method" [label="is-a"]
+	"OntoQSAR2_v1.in_vivo" -> "OntoQSAR2_v1.Assay_method" [label="is-a"]
+	"OntoQSAR2_v1.hydrogen_bond_acceptors_count(using_Lipinski’s_definition)" -> "OntoQSAR2_v1.hydrogen_bond_acceptors_count" [label="is-a"]
+	"OntoQSAR2_v1.linear_QSAR" -> "OntoQSAR2_v1.QSAR_descriptor" [label="is-a"]
+	"OntoQSAR2_v1.non-linear_dimensional_QSAR" -> "OntoQSAR2_v1.QSAR_descriptor" [label="is-a"]
+	"OntoQSAR2_v1.three_dimensional_QSAR" -> "OntoQSAR2_v1.QSAR_descriptor" [label="is-a"]
+	"OntoQSAR2_v1.two_dimensional_QSAR" -> "OntoQSAR2_v1.QSAR_descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Genetic_Algorithm" -> "OntoQSAR2_v1.Algorithm" [label="is-a"]
+	"OntoQSAR2_v1.Monte_Carlo" -> "OntoQSAR2_v1.Algorithm" [label="is-a"]
+	"OntoQSAR2_v1.Supervised_Learning" -> "OntoQSAR2_v1.Algorithm" [label="is-a"]
+	"OntoQSAR2_v1.Trial_and_Error" -> "OntoQSAR2_v1.Algorithm" [label="is-a"]
+	"OntoQSAR2_v1.Algorithm" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Assay_method" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Biological_Activity" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Chemical_Descriptor" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Diagnosis" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Functional_Group_Descriptor" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Inhibitor" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Pharmacokinetics" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Quantum_Chemistry_Computational_Method" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.Validation" -> "owl.Thing" [label="is-a"]
+	"OntoQSAR2_v1.QSAR_descriptor" -> "OntoQSAR2_v1.in_silico" [label="is-a"]
+	"OntoQSAR2_v1.EC50" -> "OntoQSAR2_v1.Biological_Activity" [label="is-a"]
+	"OntoQSAR2_v1.IC50" -> "OntoQSAR2_v1.Biological_Activity" [label="is-a"]
+	"OntoQSAR2_v1.pIC50" -> "OntoQSAR2_v1.Biological_Activity" [label="is-a"]
+	"OntoQSAR2_v1.pKi" -> "OntoQSAR2_v1.Biological_Activity" [label="is-a"]
+	"OntoQSAR2_v1.Minimum_E-States_for_(strong)_Hydrogen_Bond_acceptors" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.Minimum_E-States_for_(strong)_Hydrogen_Bond_donors" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(NH)" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(NH2)" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(OH)" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.Sum_of_atom-type_H_E-State(SH2)" -> "OntoQSAR2_v1.Atom-type_H_E-State" [label="is-a"]
+	"OntoQSAR2_v1.cross-validation_information" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.external_validation" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.internal_validation" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.regression_statistics" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.split_validation" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.y_scrambling" -> "OntoQSAR2_v1.Validation" [label="is-a"]
+	"OntoQSAR2_v1.Absorption" -> "OntoQSAR2_v1.Pharmacokinetics" [label="is-a"]
+	"OntoQSAR2_v1.Excretion" -> "OntoQSAR2_v1.Pharmacokinetics" [label="is-a"]
+	"OntoQSAR2_v1.Metabolism" -> "OntoQSAR2_v1.Pharmacokinetics" [label="is-a"]
+	"OntoQSAR2_v1.Tissue_Distribution" -> "OntoQSAR2_v1.Pharmacokinetics" [label="is-a"]
+	"OntoQSAR2_v1.Toxicity" -> "OntoQSAR2_v1.Pharmacokinetics" [label="is-a"]
+	"OntoQSAR2_v1.hydrogen_bond_donnors_count(using_Lipinski’s_definition)" -> "OntoQSAR2_v1.hydrogen_bond_donors_count" [label="is-a"]
+	"OntoQSAR2_v1.Atom-type_H_E-State" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.bond_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.cycle_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.hydrogen_bond_acceptors_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.hydrogen_bond_donors_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.AlogP_descriptor" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.BBB" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Finger_Prints" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Highest_Occupied_Molecular_Orbital_Energy" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Lowest_Unoccupied_Molecular_Orbital_Energy" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Molecular_mass" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.acidic_group_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.aromatic_atom_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.atom_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.atomic_QSAR_descriptor" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.basic_group_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.heavy_atom_count" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.lipinski" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.molar_refractivity" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.partition_coefficient" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.plane_polarized_light_method" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.polar_surface_area_descriptor" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.zagreb_index" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(first_ionization_potential)_descriptors" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(mass)_descriptors" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(polarizability)_descriptors" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+	"OntoQSAR2_v1.Moreau-Broto_autocorrelation(van_der_Waals_volumes)_descriptors" -> "OntoQSAR2_v1.Chemical_Descriptor" [label="is-a"]
+}

@@ -20,8 +20,7 @@ print('---------------------------------------------------------------------')
 menu_selecao = input('Deseja calcular similaridades ou analisar correlação? 1-Similaridade / 2-Correlação ')
 dic={
     '1':'Similaridade',
-    '2':'Correlação',
-    '3': 'Outro'
+    '2':'Correlação'
 }
 
 if(menu_selecao=='2'):

@@ -4,7 +4,7 @@ import matplotlib.transforms as mtransforms
 from matplotlib.transforms import Bbox
 from graphviz import Digraph
 import os
-os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin'
+# os.environ["PATH"] += os.pathsep + 'C:/Program Files/Graphviz/bin'
 import shutil
 
 # Plot de grafo
