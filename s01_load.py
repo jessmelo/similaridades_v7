@@ -15,9 +15,9 @@ def encontrar_arq():
     for path, diretorios, arquivos in walk(path) :
         for arq in arquivos:
             nome_arq=os.path.splitext(arq)[0]
-            print(nome_arq)
 
             if arq.endswith(".owl") or arq.endswith(".rdf"):
+                print("Convertendo ontologias para grafo...")
                 onto = get_ontology(path+str(arq)).load()
 
                 class root(Thing):
@@ -49,7 +49,7 @@ def encontrar_arq():
                 df.to_csv('./data_in/'+nome_arq+'_adj.csv', index = False, sep='|')
 
                 # ontologia
-                df=carga_de_ontologia(nome_arq+"_adj.csv")
+                df=carga_de_ontologia(nome_arq+'_adj.csv')
 
                 # criando grafos da ontologia (direcionado e nao direcionado)
                 nodes=nos(df)
@@ -64,6 +64,7 @@ def encontrar_arq():
                 data = [H, G]
                 graph_file = "./data_in/"+ nome_arq + "_ontology.graph"
                 pickle.dump(data, open(graph_file, "wb"))
+                shutil.move(path+arq, './owl_rdf/')
 
     return()
 
@@ -90,7 +91,7 @@ def criar_menu_arq():
     lista = [arq for arq in arr if(arq.endswith(".graph"))]
 
     menu_list = []
-    n = 0
+    n = 1
     for i in lista:
         print(n, i)
         menu_list.append((n,i))
@@ -111,7 +112,7 @@ def criar_menu_arq_avaliacao():
              (arq.startswith("avalia_conceitos"))]
 
     menu_avalia_list = []
-    n = 0
+    n = 1
     for i in lista:
         print(n, i)
         menu_avalia_list.append((n,i))

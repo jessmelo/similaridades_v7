@@ -30,13 +30,19 @@ def sim_spath(H,i,j):
 
 def matriz_sim_path(H,base,avaliacao,df_avaliacao):
     m = []
+    nome_arq = str(base).replace('.graph', '')
+
     if avaliacao == '1':
+        nome_avaliacao = df_avaliacao['avaliacao'].values[0]
+
         for index, row in df_avaliacao.iterrows():
             res = sim_spath(H, row['c1'], row['c2'])
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
 
         m = pd.DataFrame(m)
         m.columns = ['c1', 'c2', 'res_in', 'res_calc']
+        m.to_csv('./data_out/similaridade_' + nome_arq + '_' + nome_avaliacao +'_sim_path.csv', index=False, sep='|')
+        print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_' + nome_avaliacao +'_sim_path.csv')
 
     else:
         for i in list(H.nodes):
@@ -46,32 +52,25 @@ def matriz_sim_path(H,base,avaliacao,df_avaliacao):
 
         m = pd.DataFrame(m)
         m.columns = ['c1', 'c2', 'res_in', 'res_calc']
+        m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_path.csv', index=False, sep='|')
+        print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_path.csv')
 
-    nome_arq = str(base).replace('.graph', '')
-    m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_path.csv', index=False, sep='|')
-    print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_path.csv')
     return(m)
 
 ###################################################################
 # Medida de similaridade Sim_wup
 
-def sim_wup(G, i, j, root):
+def sim_wup(G, H, i, j, root):
     # no raiz da snomed-ct:
     # root = "id.138875005"
 
     if i == j:
         sim_wup = 1.0
         return sim_wup
-
-    # definindo o no raiz da arvore
-    # for i in G.nodes():
-    #     if (G.in_degree(i) == 0):
-    #         root = i
-
+    
     # calculando o Least Common Subsumer (Ancestor)
     LCS = nx.lowest_common_ancestor(G, i, j)
 
-    H = G.to_undirected()
     # calculando a profundidade dos nos =  menor caminho do no até a raiz
     depth_lcs   = shortest_path_length(H, root, LCS)
     depth_node1 = shortest_path_length(H, root, i)
@@ -84,35 +83,42 @@ def sim_wup(G, i, j, root):
 
     return(sim_wup)
 
-def matriz_sim_wup(G,base,avaliacao,df_avaliacao):
+def matriz_sim_wup(G, H, base, avaliacao, df_avaliacao):
     m = []
+    nome_arq = str(base).replace('.graph', '')
 
+    dag = nx.is_directed_acyclic_graph(G)
+    print("Grafo é DAG: "+ str(dag))
     # definindo o no raiz da arvore
     for i in G.nodes():
         if (G.in_degree(i) == 0):
             root = i
 
-    print("raiz do grafo: " + str(root))
+    print("Raiz do grafo/ontologia: " + str(root))
     if avaliacao == '1':
+        nome_avaliacao = df_avaliacao['avaliacao'].values[0]
+
         for index, row in df_avaliacao.iterrows():
-            res = sim_wup(G, row['c1'], row['c2'], root)
+            print(str(row['c1']) + ' ' + str(row['c2']))
+            res = sim_wup(G, H, row['c1'], row['c2'], root)
             m.append([row['c1'], row['c2'],row['res_in'], round(res, 4)])
 
         m = pd.DataFrame(m)
         m.columns = ['c1', 'c2', 'res_in', 'res_calc']
+        m.to_csv('./data_out/similaridade_' + nome_arq + '_' + nome_avaliacao +'_sim_wup.csv', index=False, sep='|')
+        print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_' + nome_avaliacao +'_sim_wup.csv')
 
     else:
         for i in list(G.nodes):
             for j in list(G.nodes):
-                res = sim_wup(G, i, j, root)
-                m.append([i, j, round(res, 4)])
+                res = sim_wup(G, H, i, j, root)
+                m.append([i, j, 0, round(res, 4)])
 
         m = pd.DataFrame(m)
         m.columns = ['c1', 'c2', 'res_in', 'res_calc']
+        m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_wup.csv', index=False, sep='|')
+        print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_wup.csv')
 
-    nome_arq = str(base).replace('.graph', '')
-    m.to_csv('./data_out/similaridade_' + nome_arq + '_sim_wup.csv', index=False, sep='|')
-    print('Lista de resultados: ' + './data_out/similaridade_' + nome_arq + '_sim_wup.csv')
     return(m)
 
 ###################################################################

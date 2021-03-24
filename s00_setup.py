@@ -20,14 +20,16 @@ print('---------------------------------------------------------------------')
 menu_selecao = input('Deseja calcular similaridades ou analisar correlação? 1-Similaridade / 2-Correlação ')
 dic={
     '1':'Similaridade',
-    '2':'Correlação'
+    '2':'Correlação',
+    '3': 'Outro'
 }
-print(dic[(menu_selecao)])
 
 if(menu_selecao=='2'):
     from s05_report import *
     avalia_correlacao()
     os._exit(0)
+elif(menu_selecao!='1' and menu_selecao!='2'):
+    print('Seleção incorreta! Tente novamente.')
 
 '****************************************************************************'
 print('')
@@ -36,13 +38,15 @@ print('## Menu de ontologias    ############################################')
 print('#####################################################################')
 print('')
 
+encontrar_arq()
+
 print('---------------------------------------------------------------------')
 print('* Ontologias disponíveis:')
 
 dic=criar_menu_arq()
 
 print('---------------------------------------------------------------------')
-ontologia=input('Qual arquivo/ontologia você deseja utilizar?')
+ontologia=input('Qual arquivo/ontologia você deseja utilizar? ')
 print(dic[int(ontologia)])
 
 '****************************************************************************'
@@ -66,7 +70,7 @@ print(' 6 - Sim_jcn    :  IC based - Jiang e Conrath')
 #print('11 - Rel_vector :  Vector')
 print('---------------------------------------------------------------------')
 
-medida = input('Escolha uma medida (utilize os números):')
+medida = input('Escolha uma medida (utilize os números): ')
 
 medida_dic={
     '1':'Sim_path',
@@ -90,7 +94,7 @@ print('## Avaliação             ############################################')
 print('#####################################################################')
 print('')
 
-avaliacao=input('Deseja utilizar uma base de avaliação? 1-Sim/2-Não')
+avaliacao=input('Deseja utilizar uma base de avaliação? 1-Sim/2-Não ')
 print('')
 
 if avaliacao == '1':
@@ -100,7 +104,7 @@ if avaliacao == '1':
     dic_avaliacao=criar_menu_arq_avaliacao()
 
     print('')
-    avalia_input=input('Qual arquivo de avaliação você deseja utilizar?')
+    avalia_input=input('Qual arquivo de avaliação você deseja utilizar? ')
     avaliacao_nome=dic_avaliacao[int(avalia_input)]
     print(avaliacao_nome)
 
@@ -147,20 +151,12 @@ print('## Plot                  ############################################')
 print('#####################################################################')
 print('')
 
-grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não')
+grafo_imagem = input('Deseja representar a imagem do grafo? 1-Sim/2-Não ')
 
 print('* Escolha: '+str(grafo_imagem))
 if grafo_imagem == '1':
-    draw_grafo=draw_Digraph(nos,arestas,base)
-
-path = './data_in/'
-arr = os.listdir(path)
-lista = [arq for arq in arr if
-         (arq.endswith(".owl") or arq.endswith(".rdf"))]
-
-#print(lista)
-for i in lista:
-    shutil.move(path+str(i), './owl_rdf/')
+    # draw_grafo=draw_Digraph(nos,arestas,base)
+    draw_grafo=draw_Digraph(G,base)
 
 '****************************************************************************'
 print('')
@@ -179,7 +175,7 @@ if medida_dic[medida] == 'Sim_path':
 
 elif medida_dic[medida] == 'Sim_wup':
     ini = time.time()
-    m=matriz_sim_wup(G,base,avaliacao,df_avaliacao)
+    m=matriz_sim_wup(G,H,base,avaliacao,df_avaliacao)
     fim = time.time()
     print("Duração: " + str(fim - ini))
 
